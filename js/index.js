@@ -291,7 +291,13 @@ function generate_note(note) {
   </div>`;
   note_element.append(note_footer);
 
-
+  note_footer.querySelectorAll(".color_option").forEach((option) => {
+    let classOption = option.classList.item(1);
+    option.addEventListener('click', (event) => {
+      note_element.closest(".note").className = `note ${classOption}`; 
+      note_element.closest(".note").querySelector("#color").value = classOption;
+    });
+  });
 
 
 
